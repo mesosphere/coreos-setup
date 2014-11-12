@@ -1,0 +1,18 @@
+[Unit]
+Description=Zookeeper
+After=docker.service
+Requires=docker.service
+
+[Service]
+Restart=on-failure
+RestartSec=20
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill zookeeper
+ExecStartPre=-/usr/bin/docker rm zookeeper
+ExecStartPre=/usr/bin/docker pull jplock/zookeeper
+ExecStart=/usr/bin/docker run --net=host --name=zookeeper jplock/zookeeper
+ExecStop=/usr/bin/docker stop zookeeper
+
+[Install]
+WantedBy=multi-user.target
+
