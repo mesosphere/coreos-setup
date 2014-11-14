@@ -1,4 +1,4 @@
-coreos-setup
-============
+# coreos-setup
 
-systemd files for Mesos on CoreOS setup
+systemd unit files for Mesos on CoreOS setup.
+

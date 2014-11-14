@@ -16,8 +16,8 @@ ExecStart=/usr/bin/docker run \
     -p 8080:8080 \
     -p 9090:9090 \
     thefactory/marathon:0.7.3 \
-    --master zk://<ZK_HOST>:2181/mesos \
-    --zk zk://<ZK_HOST>:2181/marathon \
+    --master zk://<ZK_IP>:2181/mesos \
+    --zk zk://<ZK_IP>:2181/marathon \
     --checkpoint \
     --task_launch_timeout 300000
 ExecStop=/usr/bin/docker stop marathon
