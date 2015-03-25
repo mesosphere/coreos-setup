@@ -13,6 +13,7 @@ ExecStartPre=/usr/bin/docker pull mesosphere/mesos-slave:0.20.1
 ExecStart=/usr/bin/sh -c "/usr/bin/docker run \
     --name=mesos_slave \
     --net=host \
+    --pid=host \
     --privileged \
     -v /sys:/sys \
     -v /usr/bin/docker:/usr/bin/docker:ro \
