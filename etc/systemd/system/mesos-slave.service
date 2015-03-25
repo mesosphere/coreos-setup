@@ -20,7 +20,7 @@ ExecStart=/usr/bin/sh -c "/usr/bin/docker run \
     -v /lib64/libdevmapper.so.1.02:/lib/libdevmapper.so.1.02:ro \
     mesosphere/mesos-slave:0.20.1 \
     --ip=$(/usr/bin/ip -o -4 addr list eth0 | grep global | awk \'{print $4}\' | cut -d/ -f1) \
-    --containerizers=docker \
+    --containerizers=docker,mesos \
     --master=zk://<ZK_IP>:2181/mesos \
     --work_dir=/var/lib/mesos/slave \
     --log_dir=/var/log/mesos/slave"
